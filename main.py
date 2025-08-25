@@ -104,7 +104,7 @@ def fill_login_form(driver, url, iterations=1):
             # Обновляем страницу для новой попытки (кроме первой)
             if i > 0:
                 driver.refresh()
-                time.sleep(0)
+                time.sleep(2)
             
             # Ждем появления полей ввода
             try:
@@ -144,7 +144,7 @@ def fill_login_form(driver, url, iterations=1):
                     print("Кнопка 'Войти' нажата успешно!")
                     
                     # Ждем возможной реакции (перенаправление, сообщение об ошибке и т.д.)
-                    # time.sleep(2)
+                    time.sleep(2)
                     
                     # Проверяем, изменился ли URL (произошел ли вход)
                     current_url = driver.current_url
@@ -160,8 +160,7 @@ def fill_login_form(driver, url, iterations=1):
             
             # Пауза между итерациями
             if i < iterations - 1:
-                # time.sleep(random.uniform(1, 3))  # Случайная пауза
-                time.sleep(0)  # Случайная пауза
+                time.sleep(random.uniform(1, 3))  # Случайная пауза
                 
     except Exception as e:
         print(f"Произошла ошибка: {e}")
